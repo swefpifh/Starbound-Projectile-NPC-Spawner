@@ -1,0 +1,57 @@
+{
+  "projectileName" : "swefProjectileNPC",
+  "image" : "swefProjectileNPC.png",
+  "physics" : "grenade",
+  "emitters" : [],
+  "movementSettings" : {
+    "collisionPoly" : [ [-0.375, 0], [-0.25, -0.25], [0, -0.375], [0.25, -0.25], [0.375, 0], [0.25, 0.25], [0, 0.375], [-0.25, 0.25] ],
+    "airFriction" : 2.0
+  },
+  "animationCycle" : 0.3,
+  "frameNumber" : 1,
+  "power" : 0,
+  "speed" : 10,
+  "timeToLive" : 20.0,
+  "bounces" : 1,
+  "damagePoly" : [ [8, 0], [0, 8], [-8, 0], [0, -8] ],
+  "piercing" : true,
+  "periodicActions" : [
+    {
+      "time" : 0.02,
+      "repeat" : true,
+      "action" : "particle",
+      "rotate" : true,
+      "specification" : {
+          "type" : "ember",
+          "size" : 1,
+          "color" : [253, 209, 77],
+          "position" : [0, 0],
+          "destructionAction" : "fade",
+          "destructionTime" : 0.2,
+          "fade" : 1,
+          "layer" : "middle",
+          "timeToLive" : 0.2,
+          "variance" : {
+            "initialVelocity" : [2.0, 2.0],
+            "position" : [0.25, 0.25]
+          }
+      }
+    }
+  ],
+
+  "npcSpecies" : ["human", "avian"],
+  "npcType" : ["swefBeamNPCentity"],
+  
+  "npcThreatLevelmin" : 0,
+		//Select the minimum and maximum threat level. This will generate a selection in the min and max interval. ex: min:1, max:3, your npc will be able to spawn randomly with a threat level 1, 2 or 3.
+  
+  "npcThreatLevelmax" : 0,
+		//If you write 0 in both choise, or if you enter a number in the maximum value that is lower than the minimum value, the level will adapt to the instance.
+  
+  //"onlyHitTerrain" : true,
+
+  "renderLayer" : "Monster+20",
+  "fullbright" : true,
+
+  "scripts" : [ "swefProjectileNPC.lua" ]
+}

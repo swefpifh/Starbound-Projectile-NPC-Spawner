@@ -1,0 +1,83 @@
+{
+  "type" : "swefBeamNPCentity",
+  "baseType" : "base",
+  
+  "persistent" : false,
+  
+  "damageTeam" : 2,
+
+  "dropPools" : [ "villagertreasure" ],
+  
+  "scripts" : [ "/npcs/swefBeamNPC.lua" ],
+  "scriptConfig" : {
+    "beamEffect" : false, //true: display the teleporter beam effect, false: hide the teleporter beam effect
+	
+	"aggressive" : true,
+	
+	"behavior" : "hostileguard",
+	"behaviorConfig" : {
+      "leapWindup" : 0.75,
+      "rangedAimTime" : 1.0,
+      "rangedWindupTime" : 0.01
+    },
+	
+	"personalities" : [
+        [1.0, { "personality" : "normal", "reactions" : {} }]
+    ],
+
+    "reactions" : {
+      "spontaneous" : [
+        [5.0, "sleep", { "timeRange" : [0.7, 0.9] }],
+        [1.0, "patrol"]
+      ]
+    },
+	
+	"dialog" : {
+      "attack" : {
+        "default" : { "default" : [ "Checking" ] },
+        "human" : { "default" : [ "Checking" ] }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            //"head" : [ { "name" : "foundryhardhathead" } ],
+            "chest" : [ { "name" : "foundrychest" } ],
+            "legs" : [ { "name" : "foundrylegs" } ],
+			"primary" : [ { "name" : "neotommygun" } ]
+          }
+        ] ]
+    ]
+  },
+  
+  "touchDamage" : {
+    "damage" : 0,
+    "teamType" : "enemy",
+    "damageType" : "knockback",
+    "damageSourceKind" : "nodamage",
+    "damageRepeatGroup" : "npcTouchKnockback",
+    "damageRepeatTimeout" : 0.5,
+    "knockback" : 20,
+    "statusEffects" : [ ]
+  },
+  
+  "statusControllerSettings" : {
+    "stats" : {
+      "maxHealth" : {
+        "baseValue" : 100.0
+      },
+      "powerMultiplier" : {
+        "baseValue" : 0.0
+      },
+      "protection" : {
+        "baseValue" : 0.0
+      },
+      "healthRegen" : {
+        "baseValue" : 0.0
+      }
+    }
+  }
+}
